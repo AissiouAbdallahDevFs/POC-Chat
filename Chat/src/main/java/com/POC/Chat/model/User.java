@@ -20,6 +20,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
+    private String username; 
+    
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
@@ -46,7 +49,12 @@ public class User {
     @Column(name = "is_connected", nullable = false)
     private boolean isConnected = false;
 
+
+    private boolean online;
+
     public enum Role {
         USER, ADMIN
     }
+
+  
 }

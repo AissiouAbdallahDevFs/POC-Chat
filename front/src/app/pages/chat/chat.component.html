@@ -1,0 +1,27 @@
+<div class="chat-container">
+    <div class="user-list">
+      <h3>Users Online</h3>
+      <ul>
+        <li *ngFor="let user of onlineUsers" (click)="selectUser(user.id)">
+          {{ user.firstName }} {{ user.lastName }}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="chat-popup" *ngIf="recipientId">
+      <div class="chat-header">
+        <h3>Chat with {{ selectedUserName }}</h3>
+        <button (click)="closeChat()">Close</button>
+      </div>
+      <div class="chat-messages">
+        <div *ngFor="let msg of messages" class="message">
+          <strong>{{ msg.senderId }}:</strong> {{ msg.content }}
+        </div>
+      </div>
+      <div class="chat-input">
+        <input [(ngModel)]="message" placeholder="Type your message here..." />
+        <button (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  

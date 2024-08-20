@@ -36,6 +36,25 @@
 			<artifactId>bucket4j-spring-boot-starter</artifactId>
 			<version>0.7.0</version>
 		</dependency>
+		<dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-webflux</artifactId>
+          </dependency>
+		   <dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>4.1.66.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>io.socket</groupId>
+				<artifactId>socket.io-client</artifactId>
+				<version>2.1.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.corundumstudio.socketio</groupId>
+				<artifactId>netty-socketio</artifactId>
+				<version>1.7.16</version> <!-- or the latest version -->
+			</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

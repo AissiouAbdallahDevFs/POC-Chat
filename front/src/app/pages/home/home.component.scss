@@ -1,0 +1,15 @@
+.center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.btnHomePage {
+  margin: 20px;
+}
+
+img {
+  max-width: 100%; 
+  margin-bottom: 20px; 
+}
