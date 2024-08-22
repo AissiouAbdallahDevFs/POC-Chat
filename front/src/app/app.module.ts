@@ -20,11 +20,9 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ChatComponent } from './pages/chat/chat.component';
 
-const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+
 @NgModule({
   declarations: [AppComponent, HomeComponent, LoginComponent, RegisterComponent,NavbarComponent,  ProfilePageComponent, ChatComponent],
   imports: [
@@ -42,7 +40,6 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
     MatFormFieldModule,
     MatSelectModule,
     MatSnackBarModule,
-    SocketIoModule.forRoot(config)
     
   ],
   providers: [

@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/api/auth/login",
             "/api/auth/register",
             "/api/users",
-            "/socket.io/**",
+            "/gs-guide-websocket/**"
     };
 
         @Override
@@ -44,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
                     .antMatchers(AUTH_WHITELIST).permitAll()
+                    .antMatchers("/gs-guide-websocket/**").permitAll()
                     .anyRequest().authenticated().and()
                     .exceptionHandling()
                     .authenticationEntryPoint(unauthorizedHandler());

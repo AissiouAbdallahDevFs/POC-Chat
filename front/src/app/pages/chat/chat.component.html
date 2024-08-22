@@ -1,27 +1,37 @@
+<!-- chat.component.html -->
 <div class="chat-container">
-    <div class="user-list">
-      <h3>Users Online</h3>
-      <ul>
-        <li *ngFor="let user of onlineUsers" (click)="selectUser(user.id)">
-          {{ user.firstName }} {{ user.lastName }}
-        </li>
-      </ul>
-    </div>
-  
-    <div class="chat-popup" *ngIf="recipientId">
-      <div class="chat-header">
-        <h3>Chat with {{ selectedUserName }}</h3>
-        <button (click)="closeChat()">Close</button>
-      </div>
-      <div class="chat-messages">
-        <div *ngFor="let msg of messages" class="message">
-          <strong>{{ msg.senderId }}:</strong> {{ msg.content }}
-        </div>
-      </div>
-      <div class="chat-input">
-        <input [(ngModel)]="message" placeholder="Type your message here..." />
-        <button (click)="sendMessage()">Send</button>
-      </div>
-    </div>
+  <!-- Liste des utilisateurs en ligne -->
+  <div class="users-list">
+    <h3>Utilisateurs Connectés</h3>
+    <ul>
+      <li *ngFor="let user of users" (click)="selectUser(user)">
+        {{ user.username }}
+      </li>
+    </ul>
   </div>
-  
+
+  <!-- Pop-up de chat privé -->
+  <div *ngIf="showChatPopup" class="chat-popup">
+    <h4>Chat avec {{ selectedUser?.username }}</h4>
+    
+    <!-- Liste des messages privés -->
+    <!-- chat.component.html -->
+    <div class="private-messages">
+      <div *ngFor="let privateMessage of privateMessages"
+          [ngClass]="{'sent-message': privateMessage.senderId === currentUserId, 'received-message': privateMessage.senderId !== currentUserId}"
+          class="private-message">
+        <p><strong>{{ privateMessage.senderId === currentUserId ? 'Vous' : selectedUser?.username }}:</strong> {{ privateMessage.content }}</p>
+        <span class="timestamp">{{ privateMessage.timestamp | date: 'short' }}</span>
+      </div>
+    </div>
+
+    
+    <!-- Zone d'envoi de message -->
+    <div class="message-input">
+      <input [(ngModel)]="privateMessage" placeholder="Tapez votre message ici..." />
+      <button (click)="sendPrivateMessage()">Envoyer</button>
+    </div>
+
+    <button (click)="closeChatPopup()">Fermer</button>
+  </div>
+</div>

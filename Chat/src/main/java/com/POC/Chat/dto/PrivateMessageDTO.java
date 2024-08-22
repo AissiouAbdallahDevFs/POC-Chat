@@ -28,6 +28,7 @@ public class PrivateMessageDTO {
         this.senderId = message.getSender().getId();
         this.recipientId = message.getRecipient().getId();
         this.content = message.getContent();
-        this.timestamp = message.getTimestamp();
+        this.timestamp = message.getTimestamp().toLocalDateTime();
     }
+
 }

@@ -1,100 +1,146 @@
 .chat-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-  
-    .user-list {
-      width: 300px;
-      border-right: 1px solid #ccc;
-      padding-right: 20px;
-  
-      h3 {
-        margin-top: 0;
-      }
-  
-      ul {
-        list-style: none;
-        padding: 0;
-  
-        li {
-          cursor: pointer;
-          padding: 10px;
-          border-bottom: 1px solid #ddd;
-  
-          &:hover {
-            background-color: #f0f0f0;
-          }
-        }
-      }
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+
+  .users-list {
+    width: 200px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+
+    h3 {
+      margin-top: 0;
     }
-  
-    .chat-popup {
-      flex: 1;
-      margin-left: 20px;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      background: #fff;
-      position: relative;
-      overflow: hidden;
-  
-      .chat-header {
-        background: #007bff;
-        color: #fff;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-  
-        button {
-          background: none;
-          border: none;
-          color: #fff;
-          font-size: 16px;
-          cursor: pointer;
-        }
-      }
-  
-      .chat-messages {
-        flex: 1;
-        padding: 10px;
-        overflow-y: auto;
-  
-        .message {
-          margin-bottom: 10px;
-        }
-      }
-  
-      .chat-input {
-        display: flex;
-        padding: 10px;
-        border-top: 1px solid #ddd;
-  
-        input {
-          flex: 1;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          margin-right: 10px;
-        }
-  
-        button {
-          padding: 10px 20px;
-          border: none;
-          background-color: #007bff;
-          color: #fff;
-          border-radius: 4px;
-          cursor: pointer;
-  
-          &:hover {
-            background-color: #0056b3;
-          }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        padding: 8px;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: #e0e0e0;
         }
       }
     }
   }
+
+  .messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+
+    .message {
+      margin-bottom: 10px;
+
+      p {
+        margin: 0;
+        padding: 5px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .chat-popup {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      margin: 0;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+    }
+
+    .private-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+
+      .private-message {
+        margin-bottom: 10px;
+
+        p {
+          margin: 0;
+          padding: 5px;
+          border-radius: 5px;
+          background-color: #f1f1f1;
+        }
+
+        &.sent-message p {
+          background-color: #d1ffd1;
+          text-align: right;
+        }
+
+        &.received-message p {
+          background-color: #f1f1f1;
+        }
+
+        .timestamp {
+          display: block;
+          font-size: 0.8em;
+          color: #888;
+        }
+      }
+    }
+
+    .message-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+      padding: 10px;
+      
+      input {
+        flex: 1;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      button {
+        margin-left: 10px;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+
+    button {
+      margin: 10px;
+      background-color: #ff4c4c;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #e03a3a;
+      }
+    }
+  }
+
+  .typing-indicator {
+    font-style: italic;
+    color: gray;
+  }
+
   
+}

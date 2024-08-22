@@ -4,13 +4,15 @@ public class PrivateChatRequestDTO {
 
     private Long userId;
     private Long recipientId;
+    private Long senderId;
 
 
     public PrivateChatRequestDTO() {}
 
-    public PrivateChatRequestDTO(Long userId, Long recipientId) {
+    public PrivateChatRequestDTO(Long userId, Long recipientId, Long senderId) {
         this.userId = userId;
         this.recipientId = recipientId;
+        this.senderId = senderId;
     }
 
 
@@ -31,4 +33,13 @@ public class PrivateChatRequestDTO {
         this.recipientId = recipientId;
     }
     
+    public Long getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(Long senderId) {
+        this.senderId = senderId;
+    }
+
+ 
 }

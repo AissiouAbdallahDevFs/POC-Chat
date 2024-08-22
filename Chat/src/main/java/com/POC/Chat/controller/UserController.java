@@ -109,8 +109,10 @@ public class UserController {
 
             // Create user profile DTO
             UserProfileDTO userProfileDTO = new UserProfileDTO();
+            userProfileDTO.setId(user.getId());
             userProfileDTO.setEmail(user.getEmail());
             userProfileDTO.setUsername(user.getFirstName() + " " + user.getLastName());
+            
 
             return ResponseEntity.ok(userProfileDTO);
         } catch (Exception e) {
@@ -130,7 +132,7 @@ public class UserController {
     }
 
     // Endpoint pour récupérer les utilisateurs connectés
-    @GetMapping("/usersOnline")
+    @GetMapping("auth/usersOnline")
     public ResponseEntity<List<UserDTO>> getConnectedUsers() {
         List<UserDTO> connectedUsers = userService.getConnectedUsers();
         return ResponseEntity.ok(connectedUsers);

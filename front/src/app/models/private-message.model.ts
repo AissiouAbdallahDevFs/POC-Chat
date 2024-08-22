@@ -1,7 +1,17 @@
 // src/app/models/private-message.model.ts
 export interface PrivateMessage {
-  senderId: number;  // ID de l'expéditeur
-  recipientId: number;  // ID du destinataire
+  senderId: number;
+  recipientId: number;
   content: string;
-  timestamp: Date;  // Assurez-vous que c'est un objet Date
+  timestamp: string;
+}
+
+export interface TypingNotificationDTO {
+  senderId: number;
+  recipientId: number;
+}
+// private-chat-request.dto.ts
+export interface PrivateChatRequestDTO {
+  senderId: number;
+  recipientId: number;
 }
